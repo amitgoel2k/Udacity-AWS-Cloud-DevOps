@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 
-Description: <your stack description here>
+Description: <Udacity AWS Nanodegree - To test CloudFormation Module>
 
 # Available top-level fields are listed in code completion
 
@@ -11,7 +11,6 @@ Description: <your stack description here>
 #     # <add resource-specific properties underneath this entry  - available properties are listed in code completion>
 #     Properties:
 
-
 Resources:
   UdacityVPC:
     Type: AWS::EC2::VPC
@@ -19,3 +18,7 @@ Resources:
       CidrBlock: 10.0.0.0/16
       EnableDnsSupport: true
       EnableDnsHostnames: true
+      Tags:
+      - Key: name
+        Value: myfirsttestvpc
+        
