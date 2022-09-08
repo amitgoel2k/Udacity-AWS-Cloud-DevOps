@@ -1,6 +1,5 @@
 Description: >
-  Author - Amit Goel
-  This is a template which is used for deploying network components like VPC, Private and Public Subnets, NAT Gateways, Internet Gateways via Cloudformation.
+  Author - Amit Goel. This is a template which is used for deploying network components like VPC, Private and Public Subnets, NAT Gateways, Internet Gateways via Cloudformation.
 
 Parameters:
   EnvironmentName:
@@ -15,22 +14,22 @@ Parameters:
   PrivateSubnet1CIDR: 
     Description: Please enter the IP address range (CIDR notation) for private subnet in AZ1
     Type: String
-    Default: 10.0.0.0/24
+    Default: 10.0.6.0/24
 
   PrivateSubnet2CIDR: 
-    Description: Please enter the IP address range (CIDR notation) for private subnet in AZ1
+    Description: Please enter the IP address range (CIDR notation) for private subnet in AZ2
     Type: String
-    Default: 10.0.1.0/24
+    Default: 10.0.7.0/24
 
   PublicSubnet1CIDR: 
     Description: Please enter the IP address range (CIDR notation) for public subnet in AZ1
     Type: String
-    Default: 10.0.2.0/24
+    Default: 10.0.4.0/24
 
   PublicSubnet2CIDR: 
-    Description: Please enter the IP address range (CIDR notation) for public subnet in AZ1
+    Description: Please enter the IP address range (CIDR notation) for public subnet in AZ2
     Type: String
-    Default: 10.0.3.0/24 
+    Default: 10.0.5.0/24 
 
 
 Resources:
@@ -75,7 +74,7 @@ Resources:
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Private Subnet (AZ1)
+          Value: !Sub ${EnvironmentName} Public Subnet (AZ1)
 
   PublicSubnet2:
     Type: AWS::EC2::Subnet
@@ -86,7 +85,7 @@ Resources:
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Private Subnet (AZ2)
+          Value: !Sub ${EnvironmentName} Public Subnet (AZ2)
 
   InternetGateway:
     Type: AWS::EC2::InternetGateway
